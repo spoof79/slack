@@ -45,7 +45,7 @@ def get_users(channel_info):
   return members
 
 
-def get_inactive_channels(all_unarchived_channels, too_old_datetime):
+def get_inactive_channels(all_unarchived_channels):
   payload  = {'inclusive': 0, 'oldest': 0, 'count': 50}
   api_endpoint = 'channels.info'
   inactive_channels = []
@@ -74,5 +74,5 @@ def archive_inactive_channels(channels):
 
 
 all_unarchived_channels = get_all_channels()
-inactive_channels       = get_inactive_channels(all_unarchived_channels, TOO_OLD_DATETIME)
+inactive_channels       = get_inactive_channels(all_unarchived_channels)
 archive_inactive_channels(inactive_channels)
